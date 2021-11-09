@@ -6,6 +6,10 @@ module "tfstate-functions" {
     source = "../common-functions/tfstate-functions/tfstate-functions.sentinel"
 }
 
+module "tfrun-functions" {
+  source = "../common-functions/tfrun-functions/tfrun-functions.sentinel"
+}
+
 module "tfconfig-functions" {
     source = "../common-functions/tfconfig-functions/tfconfig-functions.sentinel"
 }
@@ -15,51 +19,11 @@ module "azure-functions" {
 }
 
 policy "enforce-mandatory-tags" {
-    source = "./enforce-mandatory-tags.sentinel"
-    enforcement_level = "advisory"
+  source = "./enforce-mandatory-tags.sentinel"
+  enforcement_level = "hard-mandatory"
 }
 
-policy "require-database-auditing" {
-    source = "./require-database-auditing.sentinel"
-    enforcement_level = "advisory"
-}
-
-policy "restrict-aks-clusters" {
-    source = "./restrict-aks-clusters.sentinel"
-    enforcement_level = "advisory"
-}
-
-policy "restrict-app-service-to-https" {
-    source = "./restrict-app-service-to-https.sentinel"
-    enforcement_level = "advisory"
-}
-
-policy "restrict-inbound-source-address-prefixes" {
-    source = "./restrict-inbound-source-address-prefixes.sentinel"
-    enforcement_level = "advisory"
-}
-
-policy "restrict-outbound-destination-address-prefixes" {
-    source = "./restrict-outbound-destination-address-prefixes.sentinel"
-    enforcement_level = "advisory"
-}
-
-policy "restrict-publishers-of-current-vms" {
-    source = "./restrict-publishers-of-current-vms.sentinel"
-    enforcement_level = "advisory"
-}
-
-policy "restrict-vm-image-id" {
-    source = "./restrict-vm-image-id.sentinel"
-    enforcement_level = "advisory"
-}
-
-policy "restrict-vm-publisher" {
-    source = "./restrict-vm-publisher.sentinel"
-    enforcement_level = "advisory"
-}
-
-policy "restrict-vm-size" {
-    source = "./restrict-vm-size.sentinel"
+policy "limit-cost-and-percentage-increase" {
+    source = "./limit-cost-and-percentage-increase.sentinel"
     enforcement_level = "advisory"
 }
