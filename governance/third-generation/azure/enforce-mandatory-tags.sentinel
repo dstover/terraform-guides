@@ -19,7 +19,7 @@ param resource_types default [
 ]
 
 # List of mandatory tags
-param mandatory_tags default ["owner", "se-region", "ttl", "purpose", "terraform", "hc-internet-facing"]
+param mandatory_tags default ["owner", "team", "ttl", "purpose", "terraform", "internet-facing"]
 
 # Get all Azure Resources with standard tags
 allAzureResourcesWithStandardTags =
